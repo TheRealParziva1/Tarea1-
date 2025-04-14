@@ -53,6 +53,7 @@ public:
     void buscarAnio(int anio);
     void CalcularTiempototal();
     bool PreguntaRepetida(string pregunta, int anio);
-
+    void EliminarItem(string pregunta, int anio);
+    int GetCantidad();
 };
 void ejecutarMenu();

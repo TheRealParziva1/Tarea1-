@@ -132,7 +132,26 @@ void Item::CalcularTiempototal() {
   }
   cout << "🕒 Tiempo total estimado: " << total << " minutos." << endl;
 }
+int Item::GetCantidad(){
+    return this->cantidad;
+}
+void Item::EliminarItem(string pregunta, int anio){
+    for (int i = 0; i < cantidad; i++) {  
+            if (preguntas[i]->getPregunta() == pregunta && preguntas[i]->getAnio() == anio) {
+                delete preguntas[i];
+                for (int j = i; j < cantidad - 1; j++) {
+                    preguntas[j] = preguntas[j + 1];
+                }
 
+                cantidad--;
+                preguntas[cantidad] = nullptr; 
+                cout << " Pregunta eliminada correctamente." << endl;
+            }
+        }
+        cout << " No se encontró la pregunta con ese texto y año." << endl;
+        
+    }
+    
 
     void ejecutarMenu() {
         Item banco;
@@ -195,9 +214,26 @@ void Item::CalcularTiempototal() {
             case 5:{
                 banco.CalcularTiempototal();
                 break;}
-            case 6:
-                delete(Item)
+            case 6:{
+                string pregunta;
+                int anio;
+                if(banco.Item::GetCantidad()==0){
+                    cout<<"No hay preguntas para eliminar."<<endl;
+                    break;
+                }
+                banco.mostrarPreguntas();
+                cout<<"Pregunta a eliminar:";
+                getline(cin, pregunta);
+                cout<<"año pregunta: ";
+                cin>>anio;
+                banco.EliminarItem(pregunta, anio);
                 break;
+              
+               
+               
+            }
+                
+        
             case 0:
                 repetir = false;
                 break;
@@ -205,6 +241,6 @@ void Item::CalcularTiempototal() {
                 cout << "Opción inválida." << endl;
             }
 
-
+    
             }
-        } while (repetir);}
+         while (repetir);}
