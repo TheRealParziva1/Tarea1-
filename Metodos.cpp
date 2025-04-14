@@ -102,7 +102,7 @@ void Item::buscarNivelBloom(string nivel) {
   for (int i = 0; i < cantidad; i++) {
       if (preguntas[i]->getNivelBloom() == nivel) {
           preguntas[i]->mostrar();
-          cout << "-----------------------------" << endl;
+          cout << "---------------------------" << endl;
           encontrado = true;
       }
   }
@@ -116,7 +116,7 @@ void Item::buscarAnio(int anio) {
   for (int i = 0; i < cantidad; i++) {
       if (preguntas[i]->getAnio() == anio) {
           preguntas[i]->mostrar();
-          cout << "-----------------------------" << endl;
+          cout << "---------------------------" << endl;
           encontrado = true;
       }
   }
@@ -141,9 +141,9 @@ void Item::CalcularTiempototal() {
 
         do {
             cout << "\n===== MENÚ DE PREGUNTAS =====" << endl;
-            cout << "1. Agregar pregunta" << endl;
-            cout << "2. Mostrar todas las preguntas" << endl;
-            cout << "3. Buscar por nivel Bloom" << endl;
+            cout << "1.Agregar pregunta" << endl;
+            cout << "2.Mostrar todas las preguntas" << endl;
+            cout << "3.Buscar por nivel Bloom" << endl;
             cout << "4. Buscar por año" << endl;
             cout << "5. Calcular tiempo total" << endl;
             cout<<  "6. Eliminar pregunta"<<endl;
@@ -194,15 +194,10 @@ void Item::CalcularTiempototal() {
             }
             case 5:{
                 banco.CalcularTiempototal();
+                break;}
+            case 6:
+                delete(Item)
                 break;
-            case 6:{
-            
-
-
-                    /*Item::~Item() {
-                      for (int i = 0; i < cantidad; i++) {
-                          delete preguntas[i];*/
-            }
             case 0:
                 repetir = false;
                 break;
